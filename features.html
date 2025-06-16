@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBot Features</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .feature-card i {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #45a049;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .appointment-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>HealthBot Features</h1>
+        <p>Your Personal Health Assistant</p>
+    </div>
+
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-language"></i>
+                <h3>Multi-language Support</h3>
+                <p>Communicate in multiple languages including English, Hindi, and more.</p>
+                <button class="button" onclick="window.location.href='index.html#language'">Try Now</button>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-microphone"></i>
+                <h3>Voice Input</h3>
+                <p>Speak your health queries naturally using voice recognition.</p>
+                <button class="button" onclick="window.location.href='index.html#voice'">Try Now</button>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-volume-up"></i>
+                <h3>Voice Output</h3>
+                <p>Listen to responses with natural text-to-speech capability.</p>
+                <button class="button" onclick="window.location.href='index.html#voice-output'">Try Now</button>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Appointment Booking</h3>
+                <p>Schedule medical appointments easily.</p>
+                <button class="button" id="showAppointmentForm">Book Now</button>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-pills"></i>
+                <h3>Medication Reminders</h3>
+                <p>Set reminders for your medications.</p>
+                <button class="button" onclick="setMedicationReminder()">Set Reminder</button>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Health Information</h3>
+                <p>Access comprehensive health information and tips.</p>
+                <button class="button" onclick="window.location.href='index.html#health-info'">Learn More</button>
+            </div>
+        </div>
+
+        <!-- Appointment Form (Hidden by default) -->
+        <div id="appointmentForm" class="appointment-form" style="display: none;">
+            <h2>Book an Appointment</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Visit:</label>
+                    <input type="text" id="reason" name="reason" required>
+                </div>
+                <button type="submit" class="button">Submit Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <script>
+        // Show/Hide Appointment Form
+        document.getElementById('showAppointmentForm').addEventListener('click', function() {
+            const form = document.getElementById('appointmentForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Medication Reminder Function
+        function setMedicationReminder() {
+            const medicationName = prompt('Enter medication name:');
+            const reminderTime = prompt('Enter reminder time (HH:MM):');
+            
+            if (medicationName && reminderTime) {
+                const now = new Date();
+                const [hours, minutes] = reminderTime.split(':');
+                const reminderDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes);
+                
+                if (reminderDate > now) {
+                    const timeUntilReminder = reminderDate - now;
+                    setTimeout(() => {
+                        alert(`Time to take your ${medicationName}!`);
+                    }, timeUntilReminder);
+                    alert(`Reminder set for ${medicationName} at ${reminderTime}`);
+                } else {
+                    alert('Please enter a future time for the reminder.');
+                }
+            }
+        }
+
+        // Handle Appointment Form Submission
+        document.querySelector('.appointment-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const appointmentData = {};
+            
+            for (const [key, value] of formData.entries()) {
+                appointmentData[key] = value;
+            }
+            
+            // Store appointment data (you can modify this to send to a server)
+            console.log('Appointment Data:', appointmentData);
+            alert('Appointment request submitted successfully! We will contact you shortly.');
+            this.reset();
+            document.getElementById('appointmentForm').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

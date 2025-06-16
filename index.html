@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBot - Your AI Healthcare Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">HealthBot</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#chat">Chat</a></li>
+            <li><a href="#appointments">Appointments</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Your Personal AI Healthcare Assistant</h1>
+        <p>Get instant medical advice, schedule appointments, and manage your health</p>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-comments"></i>
+                <h3>AI Chatbot</h3>
+                <p>Get instant answers to your health-related questions</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Appointment Scheduling</h3>
+                <p>Book and manage your doctor appointments easily</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-pills"></i>
+                <h3>Medication Reminder</h3>
+                <p>Never miss your medication with smart reminders</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Health Tips</h3>
+                <p>Get personalized health and wellness advice</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-apple-alt"></i>
+                <h3>Nutrition Facts</h3>
+                <p>Access detailed nutritional information</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="chat" class="chat-section">
+        <h2>Chat with HealthBot</h2>
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    <p>Hello! I'm your AI healthcare assistant. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your health-related question...">
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointments" class="appointments">
+        <h2>Schedule an Appointment</h2>
+        <div class="appointment-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Email">
+            <input type="date" placeholder="Preferred Date">
+            <input type="time" placeholder="Preferred Time">
+            <textarea placeholder="Reason for Visit"></textarea>
+            <button class="submit-btn">Schedule Appointment</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 HealthBot. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
